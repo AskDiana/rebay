@@ -105,7 +105,7 @@ module Rebay
                               "condition"=>{"conditionId"=>"4000","conditionDisplayName"=>"Very Good"}}]},
                    "paginationOutput"=>{"pageNumber"=>"1","entriesPerPage"=>"2","totalPages"=>"2359","totalEntries"=>"4717"},
                    "itemSearchURL"=>"http:\/\/shop.ebay.com\/i.html?_nkw=tolkien&_ddo=1&_ipg=2&_pgn=1"}
-        @response.results = @response.response['searchResult']['item']
+        @response.results = @response.response["searchResult"]["item"]
       end
       
       it "should trim format response correctly" do

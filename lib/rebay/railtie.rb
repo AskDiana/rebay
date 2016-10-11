@@ -1,5 +1,5 @@
-require 'rebay'
-require 'rails'
+require "rebay"
+require "rails"
 
 module Rebay
   class Railtie < Rails::Railtie

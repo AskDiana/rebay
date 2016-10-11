@@ -1,9 +1,9 @@
-source 'http://rubygems.org'
+source "http://rubygems.org"
 
 group :dependencies do
-  gem 'json'
+  gem "json"
 end
   
 group :development do
-  gem 'rspec'
+  gem "rspec"
 end

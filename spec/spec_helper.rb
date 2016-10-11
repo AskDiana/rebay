@@ -1,4 +1,4 @@
-require 'bundler/setup'
+require "bundler/setup"
 require File.join(File.dirname(__FILE__), "..", "lib", "rebay")
 
 Dir["./spec/support/**/*.rb"].sort.each {|f| require f}
@@ -8,5 +8,5 @@ RSpec.configure do |config|
 end
 
 Rebay::Api.configure do |rebay|
-  rebay.app_id = 'default'
+  rebay.app_id = "default"
 end

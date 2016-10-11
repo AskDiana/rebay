@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/spec_helper'
+require File.dirname(__FILE__) + "/spec_helper"
 
 module Rebay
   describe Shopping do
@@ -18,19 +18,19 @@ module Rebay
     context "siteid" do
       it "should default siteid" do
         @shopper.should_receive(:get_json_response).with(/siteid=0&/)
-        @shopper.get_category_info(:CategoryID => '-1')
+        @shopper.get_category_info(:CategoryID => "-1")
       end
 
       it "should default siteid" do
         Rebay::Api.default_site_id = 100
         @shopper.should_receive(:get_json_response).with(/siteid=100&/)
-        @shopper.get_category_info(:CategoryID => '-1')
+        @shopper.get_category_info(:CategoryID => "-1")
       end
 
       it "should default siteid" do
         Rebay::Api.default_site_id = 100
         @shopper.should_receive(:get_json_response).with(/siteid=99&/)
-        @shopper.get_category_info(:CategoryID => '-1', :siteid => 99)
+        @shopper.get_category_info(:CategoryID => "-1", :siteid => 99)
       end
     end
 
@@ -115,18 +115,18 @@ module Rebay
       end
 
       it "should return a hash response" do
-        @shopper.find_products({:QueryKeywords => 'harry potter'}).class.should eq(Rebay::Response)
+        @shopper.find_products({:QueryKeywords => "harry potter"}).class.should eq(Rebay::Response)
       end
 
       it "should succeed" do
-        @shopper.find_products({:QueryKeywords => 'harry potter'}).success?.should be_true
+        @shopper.find_products({:QueryKeywords => "harry potter"}).success?.should be_true
       end
 
       it "should iterate over results" do
         json = JSON.parse(File.read(File.dirname(__FILE__) + "/json_responses/shopping/find_products"))
         @shopper.stub!(:get_json_response).and_return(Rebay::Response.new(json))
 
-        response = @shopper.find_products({:QueryKeywords => 'whatevs'})
+        response = @shopper.find_products({:QueryKeywords => "whatevs"})
         
         count = 0
         response.each { |r| count = count + 1 }
@@ -140,18 +140,18 @@ module Rebay
       end
 
       it "should return a hash response" do
-        @shopper.find_half_products({:QueryKeywords => 'harry potter'}).class.should eq(Rebay::Response)
+        @shopper.find_half_products({:QueryKeywords => "harry potter"}).class.should eq(Rebay::Response)
       end
 
       it "should succeed" do
-        @shopper.find_half_products({:QueryKeywords => 'harry potter'}).success?.should be_true
+        @shopper.find_half_products({:QueryKeywords => "harry potter"}).success?.should be_true
       end
 
       it "should iterate over results" do
         json = JSON.parse(File.read(File.dirname(__FILE__) + "/json_responses/shopping/find_half_products"))
         @shopper.stub!(:get_json_response).and_return(Rebay::Response.new(json))
 
-        response = @shopper.find_half_products({:QueryKeywords => 'whatevs'})
+        response = @shopper.find_half_products({:QueryKeywords => "whatevs"})
         
         count = 0
         response.each { |r| count = count + 1 }

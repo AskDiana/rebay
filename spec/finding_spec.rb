@@ -1,10 +1,10 @@
-require File.dirname(__FILE__) + '/spec_helper'
+require File.dirname(__FILE__) + "/spec_helper"
 
 module Rebay
   describe Finding do
     before(:each) do
         @finder = Finding.new
-        @finder.stub!(:get_json_response).and_return(Rebay::Response.new({"Ack" => 'Success'}))
+        @finder.stub!(:get_json_response).and_return(Rebay::Response.new({"Ack" => "Success"}))
     end
 
     it "should specify base url" do
@@ -55,17 +55,17 @@ module Rebay
       end
       
       it "should return a hash response with keywords as parameter" do
-        @finder.find_items_advanced({:keywords => 'feist'}).class.should eq(Rebay::Response)
+        @finder.find_items_advanced({:keywords => "feist"}).class.should eq(Rebay::Response)
       end
       
       it "should succeed" do
-        @finder.find_items_advanced({:keywords => 'feist'}).success?.should be_true
+        @finder.find_items_advanced({:keywords => "feist"}).success?.should be_true
       end
       
       it "should iterate over results" do
         json = JSON.parse(File.read(File.dirname(__FILE__) + "/json_responses/finding/find_items_advanced"))
         @finder.stub!(:get_json_response).and_return(Rebay::Response.new(json))
-        response = @finder.find_items_advanced({:keywords => 'whatevs'})
+        response = @finder.find_items_advanced({:keywords => "whatevs"})
         
         count = 0
         response.each { |r| count = count + 1 }
@@ -137,17 +137,17 @@ module Rebay
       end
       
       it "should return a hash response" do
-        @finder.find_items_by_keywords({:keywords => 'feist'}).class.should eq(Rebay::Response)
+        @finder.find_items_by_keywords({:keywords => "feist"}).class.should eq(Rebay::Response)
       end
       
       it "should succeed" do
-        @finder.find_items_by_keywords({:keywords => 'feist'}).success?.should be_true
+        @finder.find_items_by_keywords({:keywords => "feist"}).success?.should be_true
       end
       
       it "should iterate over results" do
         json = JSON.parse(File.read(File.dirname(__FILE__) + "/json_responses/finding/find_items_by_keywords"))
         @finder.stub!(:get_json_response).and_return(Rebay::Response.new(json))
-        response = @finder.find_items_by_keywords({:keywords => 'whatevs'})
+        response = @finder.find_items_by_keywords({:keywords => "whatevs"})
         
         count = 0
         response.each { |r| count = count + 1 }
@@ -161,15 +161,15 @@ module Rebay
       end
       
       it "should return a hash response with storeName as parameter" do
-        @finder.find_items_in_ebay_stores({:storeName => 'Laura_Chen\'s_Small_Store'}).class.should eq(Rebay::Response)
+        @finder.find_items_in_ebay_stores({:storeName => "Laura_Chen\"s_Small_Store"}).class.should eq(Rebay::Response)
       end
       
       it "should return a hash response with keywords as parameter" do
-        @finder.find_items_in_ebay_stores({:keywords => 'feist'}).class.should eq(Rebay::Response)
+        @finder.find_items_in_ebay_stores({:keywords => "feist"}).class.should eq(Rebay::Response)
       end
       
       it "should succeed" do
-        @finder.find_items_in_ebay_stores({:keywords => 'feist'}).success?.should be_true
+        @finder.find_items_in_ebay_stores({:keywords => "feist"}).success?.should be_true
       end
     end
     
@@ -193,23 +193,23 @@ module Rebay
       end
       
       it "should return a hash response" do
-        @finder.get_search_keywords_recommendation({:keywords => 'feist'}).class.should eq(Rebay::Response)
+        @finder.get_search_keywords_recommendation({:keywords => "feist"}).class.should eq(Rebay::Response)
       end
       
       it "should succeed" do
-        @finder.get_search_keywords_recommendation({:keywords => 'feist'}).success?.should be_true
+        @finder.get_search_keywords_recommendation({:keywords => "feist"}).success?.should be_true
       end
       
       it "should iterate over results" do
         json = JSON.parse(File.read(File.dirname(__FILE__) + "/json_responses/finding/get_search_keywords_recommendation"))
         @finder.stub!(:get_json_response).and_return(Rebay::Response.new(json))
-        response = @finder.get_search_keywords_recommendation({:keywords => 'whatevs'})
+        response = @finder.get_search_keywords_recommendation({:keywords => "whatevs"})
         
         count = 0
         response.each { |r| count = count + 1 }
         count.should eq(1)
         
-        response.results.should eq('harry potter phoenix')
+        response.results.should eq("harry potter phoenix")
       end
     end
     
@@ -231,7 +231,7 @@ module Rebay
         response.each { |r| count = count + 1 }
         count.should eq(1)
         
-        response.results.should eq('1.8.0')
+        response.results.should eq("1.8.0")
       end
     end
   end

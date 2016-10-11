@@ -1,4 +1,4 @@
-require 'rebay/api'
-require 'rebay/finding'
-require 'rebay/shopping'
-require 'rebay/response'
+require "rebay/api"
+require "rebay/finding"
+require "rebay/shopping"
+require "rebay/response"

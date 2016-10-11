@@ -11,7 +11,7 @@ Configuration
 Create and require a config.rb, or if using rails create an initializer (rebay.rb perhaps), and place the following code into it:
 
 	Rebay::Api.configure do |rebay|
-		rebay.app_id = 'YOUR APPLICATION ID HERE'
+		rebay.app_id = "YOUR APPLICATION ID HERE"
 	end
 		
 		
@@ -25,7 +25,7 @@ Example
 To get search keyword recommendations for *acordian*:
 
 	finder = Rebay::Finding.new
-	response = finder.get_search_keywords_recommendation({:keywords => 'acordian'})
+	response = finder.get_search_keywords_recommendation({:keywords => "acordian"})
 	
 Ebay will return an array filled result something like this:
 		
