@@ -8,7 +8,7 @@ module Rebay
       super
     end
 
-    VERSION = "1.0.0"
+    VERSION = "1.13.0"
 
     #http://developer.ebay.com/DevZone/finding/CallRef/findItemsAdvanced.html
     def find_items_advanced(params)
