@@ -19,10 +19,10 @@ module Rebay
     #http://developer.ebay.com/DevZone/shopping/docs/CallRef/FindProducts.html
     def find_products(params)
       raise ArgumentError unless (
-           params[:CategoryID]
-        or params[:ProductID]
-        or params[:QueryKeywords]
-        or (params[:"ProductID.Value"] && params[:"ProductID.type"])
+        params[:CategoryID   ] or
+        params[:ProductID    ] or
+        params[:QueryKeywords] or
+        (params[:"ProductID.Value"] && params[:"ProductID.type"])
       )
 
       response = get_json_response(build_request_url("FindProducts", params))
@@ -37,9 +37,9 @@ module Rebay
     #http://developer.ebay.com/DevZone/shopping/docs/CallRef/FindHalfProducts.html
     def find_half_products(params)
       raise ArgumentError unless (
-           params[:ProductID]
-        or params[:QueryKeywords]
-        or (params[:"ProductID.Value"] && params[:"ProductID.type"])
+        params[:ProductID]     or
+        params[:QueryKeywords] or
+        (params[:"ProductID.Value"] && params[:"ProductID.type"])
       )
 
       response = get_json_response(build_request_url("FindHalfProducts", params))
@@ -127,7 +127,10 @@ module Rebay
 
     #http://developer.ebay.com/DevZone/shopping/docs/CallRef/FindPopularItems.html
     def find_popular_items(params={})
-      raise ArgumentError unless params[:CategoryID] or params[:QueryKeywords]
+      raise ArgumentError unless (
+        params[:CategoryID] or
+        params[:QueryKeywords]
+      )
 
       response = get_json_response(build_request_url("FindPopularItems", params))
 

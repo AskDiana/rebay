@@ -12,7 +12,10 @@ module Rebay
 
     #http://developer.ebay.com/DevZone/finding/CallRef/findItemsAdvanced.html
     def find_items_advanced(params)
-      raise ArgumentError unless params[:keywords] or params[:categoryId]
+      raise ArgumentError unless (
+        params[:keywords]   or
+        params[:categoryId]
+      )
 
       response = get_json_response(build_request_url("findItemsAdvanced", params))
 
@@ -74,7 +77,10 @@ module Rebay
 
     #http://developer.ebay.com/DevZone/finding/CallRef/findItemsIneBayStores.html
     def find_items_in_ebay_stores(params)
-      raise ArgumentError unless params[:keywords] or params[:storeName]
+      raise ArgumentError unless (
+        params[:keywords]  or
+        params[:storeName]
+      )
 
       response = get_json_response(build_request_url("findItemsIneBayStores", params))
 
